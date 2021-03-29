@@ -1,0 +1,40 @@
+<div class="card mt-4">
+  <div class="card-header">Add Contact</div>
+  <div class="card-body">
+    <form id="new-contact" class="mb-2">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+
+              <div class="form-group">
+                <label for="callsign">Callsign</label>
+                <input type="text" class="form-control" id="callsign" aria-describedby="callsign-help">
+                <small id="callsign-help" class="form-text text-muted">The callsign of the person you've
+                  contacted.</small>
+              </div>
+              <div class="form-group">
+                <label for="frequency">Frequency</label>
+                <input type="text" class="form-control" id="frequency">
+              </div>
+
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label for="mode">Mode</label>
+              <input type="text" class="form-control" id="mode">
+            </div>
+              <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+              </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log</button>
+      </div>
+      
+    </form>
+  </div>
+</div>
