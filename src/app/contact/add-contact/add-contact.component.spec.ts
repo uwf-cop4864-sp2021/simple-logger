@@ -22,4 +22,9 @@ describe('AddContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a callsign label', () => {
+    const callsignLabel = fixture.nativeElement.querySelector('#callsign-label');
+    expect(callsignLabel.textContent).toContain('Callsign');
+  });
 });
