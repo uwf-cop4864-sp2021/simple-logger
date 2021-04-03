@@ -1,7 +1,13 @@
 <div class="card mt-4">
   <div class="card-header">Add Contact</div>
   <div class="card-body">
-    <form id="new-contact" class="mb-2">
+
+    <!-- Only shows if hasError is true-->
+    <div *ngIf="hasError" class="alert alert-danger" role="alert">
+      Please correct errors in the form before continuing.
+    </div>
+
+    <form id="new-contact" class="mb-2" (submit)="logButtonClicked($event)">
 
       <div class="container">
         <div class="row">
@@ -9,13 +15,13 @@
 
               <div class="form-group">
                 <label for="callsign" id="callsign-label">Callsign</label>
-                <input type="text" class="form-control" id="callsign" aria-describedby="callsign-help">
+                <input [(ngModel)]="callsign" type="text" class="form-control" name="callsign" id="callsign" aria-describedby="callsign-help" required>
                 <small id="callsign-help" class="form-text text-muted">The callsign of the person you've
                   contacted.</small>
               </div>
               <div class="form-group">
                 <label for="frequency">Frequency</label>
-                <input type="text" class="form-control" id="frequency">
+                <input [(ngModel)]="frequency" type="text" class="form-control" name="frequency" id="frequency" required>
               </div>
 
           </div>
@@ -23,7 +29,9 @@
           <div class="col-12 col-md-6">
             <div class="form-group">
               <label for="mode">Mode</label>
-              <input type="text" class="form-control" id="mode">
+              <select [(ngModel)]="mode" class="form-control" id="mode" name="mode" required>
+                <option *ngFor="let mode of modes" [value]="mode">{{mode}}</option>
+              </select>
             </div>
               <div class="form-group">
                 <label for="notes">Notes</label>

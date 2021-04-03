@@ -13,28 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2021-02-22</td>
-          <td>13:54</td>
-          <td>N4XAE</td>
-          <td class="d-none d-md-table-cell">14,252.0</td>
-          <td class="d-none d-md-table-cell">SSB</td>
-          <td><button type="button" class="btn btn-outline-dark btn-sm">Edit</button></td>
-        </tr>
-        <tr>
-          <td>2021-02-22</td>
-          <td>13:57</td>
-          <td>KN4QNT</td>
-          <td class="d-none d-md-table-cell">14,252.0</td>
-          <td class="d-none d-md-table-cell">SSB</td>
-          <td><button type="button" class="btn btn-outline-dark btn-sm">Edit</button></td>
-        </tr>
-        <tr>
-          <td>2021-02-22</td>
-          <td>13:58</td>
-          <td>KB5VLU</td>
-          <td class="d-none d-md-table-cell">14,252.0</td>
-          <td class="d-none d-md-table-cell">SSB</td>
+        <tr *ngFor="let contact of contacts">
+          <td>{{contact.date}}</td>
+          <td>{{contact.date}}</td>
+          <td>{{contact.callsign}}</td>
+          <td class="d-none d-md-table-cell">{{contact.frequency}}</td>
+          <td class="d-none d-md-table-cell">{{contact.mode}}</td>
           <td><button type="button" class="btn btn-outline-dark btn-sm">Edit</button></td>
         </tr>
       </tbody>
