@@ -15,7 +15,7 @@
 
               <div class="form-group">
                 <label for="callsign" id="callsign-label">Callsign</label>
-                <input [(ngModel)]="callsign" type="text" class="form-control" name="callsign" id="callsign" aria-describedby="callsign-help" required>
+                <input [(ngModel)]="callsign" (blur)="callsignChanged()" type="text" class="form-control" name="callsign" id="callsign" aria-describedby="callsign-help" required>
                 <small id="callsign-help" class="form-text text-muted">The callsign of the person you've
                   contacted.</small>
               </div>

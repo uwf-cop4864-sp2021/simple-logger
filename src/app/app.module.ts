@@ -12,6 +12,7 @@ import { LogComponent } from './pages/log/log.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DetailsComponent } from './pages/details/details.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

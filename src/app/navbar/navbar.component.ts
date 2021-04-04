@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit {
 
   public currentRoute = '';
 
@@ -21,10 +21,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     ).subscribe((event: NavigationEnd) => {
       this.currentRoute = event.url;
     });
-  }
-
-  ngOnDestroy(): void {
-
   }
 
 }

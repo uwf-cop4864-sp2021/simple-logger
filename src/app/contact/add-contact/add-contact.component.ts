@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/entities/contact';
 import { ContactService } from '../contact.service';
+import { RadioOperatorService } from '../radio-operator.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -22,13 +23,22 @@ export class AddContactComponent implements OnInit {
   // A 1-up number that I use when creating contact
   private currentId = 1;
 
-  constructor(private contactService: ContactService) {}
+  constructor(
+    private contactService: ContactService,
+    private radioOperatorService: RadioOperatorService
+  ) {}
 
   ngOnInit(): void {
-    // Simulated event
+    // Simulated event - frequency from radio
     setTimeout(() => {
       this.frequency = 14000;
     }, 1000);
+  }
+
+  // Called whenever the callsign is updated on the form
+  public callsignChanged() {
+    // Publish these changes to the radio operator service
+    this.radioOperatorService.newContact(this.callsign);
   }
 
   // Handle the form submission

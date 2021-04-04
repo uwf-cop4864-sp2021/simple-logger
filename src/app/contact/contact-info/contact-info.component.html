@@ -1,12 +1,16 @@
 <div class="card mt-4">
   <div class="card-header">Info</div>
   <div class="card-body">
-    <dl>
-      <dt>Country</dt>
-      <dd>United States</dd>
 
-      <dt>Location</dt>
-      <dd>Florida</dd>
+    <dl *ngIf="op">
+      <dt>Name</dt>
+      <dd>{{op.name}}</dd>
+
+      <dt>Address</dt>
+      <dd><address>
+        {{op.address1}}
+        {{op.address2}}
+      </address></dd>
 
     </dl>
   </div>
