@@ -8,6 +8,10 @@ import { AddContactComponent } from './contact/add-contact/add-contact.component
 import { ListContactsComponent } from './contact/list-contacts/list-contacts.component';
 import { ContactInfoComponent } from './contact/contact-info/contact-info.component';
 import { FormsModule } from '@angular/forms';
+import { LogComponent } from './pages/log/log.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './pages/about/about.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     AddContactComponent,
     ListContactsComponent,
-    ContactInfoComponent
+    ContactInfoComponent,
+    LogComponent,
+    AboutComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
