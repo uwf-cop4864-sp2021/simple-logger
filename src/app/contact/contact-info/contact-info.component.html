@@ -1,4 +1,4 @@
-<ng-container *ngIf="op.name">
+<ng-container *ngIf="op && op.name">
   <div class="card mt-4">
   <div class="card-header">Info</div>
   <div class="card-body">
@@ -20,6 +20,6 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="op.location">
+<ng-container *ngIf="op && op.location">
   <app-map [locationChanges]="$locationChanges"></app-map>
 </ng-container>

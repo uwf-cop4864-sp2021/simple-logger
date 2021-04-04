@@ -23,7 +23,12 @@ export class ContactInfoComponent implements OnInit {
     this.opSub = this.radioOperatorService.$contactChanges.subscribe(
       (operator: RadioOperator) => {
         this.op = operator;
-        this.locationSubject.next(this.op.location);
+
+        // Add a small delay before firing the location change event
+        setTimeout( () => {
+          this.locationSubject.next(this.op.location)
+        }, 250);
+
       }
     )
   }
