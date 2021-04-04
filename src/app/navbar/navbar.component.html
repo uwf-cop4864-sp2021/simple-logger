@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.html">Simple Logger</a>
+  <a class="navbar-brand" [routerLink]="['']">Simple Logger</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,8 +7,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
+        <!-- The class.active binding will add the active class if the statement is true -->
+        <a class="nav-link" [class.active]=" currentRoute === '/log/contact' " [routerLink]="['/log/contact']">New Contact</a>
+      </li>
+
+      <li class="nav-item">
+        <!-- The routerLink tells the angular router to handle the routing internally instead of the browser -->
+        <a class="nav-link" [class.active]=" currentRoute === '/log/view' " [routerLink]="['/log/view']">View Log</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" [class.active]=" currentRoute === '/about' " [routerLink]="['about']">About</a>
       </li>
 
     </ul>
