@@ -17,17 +17,24 @@ export class ListContactsComponent implements OnInit, OnDestroy {
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-
-    this.subscription = this.contactService.getContactsAsObservable().subscribe( updatedContacts => {
-      console.log('got new contacts');
-      console.log(updatedContacts);
-      this.contacts = updatedContacts;
-    });
+    this.loadContacts();
   }
 
   ngOnDestroy(): void {
     // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
+  }
+
+
+  public loadContacts() {
+    this.subscription = this.contactService.getContactsAsObservable().subscribe( updatedContacts => {
+      this.contacts = updatedContacts;
+    });
+  }
+
+  public deleteContact(contactId) {
+    // Delete the contact
+    this.contactService.deleteContact(contactId);
   }
 
 }

@@ -54,6 +54,10 @@ export class ContactService {
    */
   public deleteContact(toDelete: number): boolean {
     this.contacts = this.contacts.filter( c => c.id !== toDelete);
+
+    // Update the subject to send a new observable event
+    this.subject.next(this.contacts);
+
     return true;
   }
 }

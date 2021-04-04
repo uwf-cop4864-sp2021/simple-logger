@@ -49,13 +49,17 @@ export class AddContactComponent implements OnInit {
         time: new Date(),
       };
 
-      console.log(newContact);
-
       // Send the contact
       this.contactService.addContact(newContact);
 
       // Increment the id for the next contact
       this.currentId++;
+
+      // Clear the form fields to prepare for the next item
+      // (Leave the frequency in place for the next contact.)
+      this.callsign = '';
+      this.mode = '';
+      this.notes = '';
 
       this.hasError = false;
     } else {
