@@ -1,18 +1,25 @@
-<div class="card mt-4">
+<ng-container *ngIf="op.name">
+  <div class="card mt-4">
   <div class="card-header">Info</div>
   <div class="card-body">
 
-    <dl *ngIf="op">
+    <dl>
       <dt>Name</dt>
       <dd>{{op.name}}</dd>
 
       <dt>Address</dt>
-      <dd><address>
-        {{op.address1}}
-        {{op.address2}}
-      </address></dd>
-
+      <dd>
+        <address>
+          {{op.address1}}
+          {{op.address2}}
+        </address>
+      </dd>
     </dl>
   </div>
 
-</div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="op.location">
+  <app-map [locationChanges]="$locationChanges"></app-map>
+</ng-container>

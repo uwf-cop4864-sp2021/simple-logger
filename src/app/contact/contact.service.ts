@@ -32,6 +32,11 @@ export class ContactService {
     return this.subject.asObservable();
   }
 
+  /** Gets a contact from the data by id */
+  public getContactById(id): Contact {
+    return this.contacts.find(c => c.id === id);
+  }
+
   /**
    * Adds a new contact
    * @param toDelete A new contact to insert.

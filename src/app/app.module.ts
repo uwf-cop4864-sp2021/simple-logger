@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MapComponent } from './shared/map/map.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactInfoComponent,
     LogComponent,
     AboutComponent,
-    DetailsComponent
+    DetailsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

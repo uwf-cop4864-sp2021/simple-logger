@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { pipe, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
+import { OperatorLocation } from 'src/app/entities/call-data';
 import { RadioOperator } from 'src/app/entities/radio-operator';
 import { RadioOperatorService } from '../radio-operator.service';
 
@@ -12,21 +12,25 @@ import { RadioOperatorService } from '../radio-operator.service';
 export class ContactInfoComponent implements OnInit {
 
   public op: RadioOperator;
-  public subscription: Subscription;
+  public opSub: Subscription; // Subscription to the radio operator
+
+  private locationSubject = new Subject<OperatorLocation>();
+  public $locationChanges = this.locationSubject.asObservable();
 
   constructor(private radioOperatorService: RadioOperatorService) { }
 
   ngOnInit(): void {
-    this.subscription = this.radioOperatorService.$contactChanges.subscribe(
+    this.opSub = this.radioOperatorService.$contactChanges.subscribe(
       (operator: RadioOperator) => {
         this.op = operator;
+        this.locationSubject.next(this.op.location);
       }
     )
   }
 
   ngOnDestroy(): void {
-    if(this.subscription) {
-      this.subscription.unsubscribe();
+    if(this.opSub) {
+      this.opSub.unsubscribe();
     }
   }
 

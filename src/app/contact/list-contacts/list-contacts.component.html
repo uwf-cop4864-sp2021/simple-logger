@@ -10,7 +10,7 @@
             <th scope="col">Callsign</th>
             <th scope="col" class="d-none d-md-table-cell">Frequency</th>
             <th scope="col" class="d-none d-md-table-cell">Mode</th>
-            <th scope="col">Edit</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,11 @@
             <td>{{contact.callsign}}</td>
             <td class="d-none d-md-table-cell">{{contact.frequency}}</td>
             <td class="d-none d-md-table-cell">{{contact.mode}}</td>
-            <td><button type="button" class="btn btn-outline-dark btn-sm" (click)="deleteContact(contact.id)">Delete</button></td>
+            <td>
+              <!-- This is a relative link to the id, one level deeper than this URL -->
+              <button type="button" class="btn btn-outline-dark btn-sm" [routerLink]="[contact.id]">Edit</button>
+              <button type="button" class="btn btn-outline-dark btn-sm" (click)="deleteContact(contact.id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>

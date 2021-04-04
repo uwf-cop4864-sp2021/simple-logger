@@ -1,8 +1,14 @@
 
-interface Callsign {
+export interface Callsign {
   callsign: string;
   operClass?: string;
   name?: string;
+}
+
+export interface OperatorLocation {
+  latitude: string;
+  longitude: string;
+  gridsquare: string;
 }
 
 export interface CallData {
@@ -16,11 +22,7 @@ export interface CallData {
     line2: string;
     attn: string;
   },
-  location: {
-    latitude: string;
-    longitude: string;
-    gridsquare: string;
-  },
+  location: OperatorLocation,
   otherInfo: {
     grantDate: string;
     ulsUrl: string;
