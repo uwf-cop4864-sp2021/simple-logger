@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Contact } from '../interfaces/contact';
+import { Contact } from '../entities/contact';
 
 import { ContactService } from './contact.service';
 
